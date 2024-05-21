@@ -24,3 +24,20 @@ class MainWindow(QWidget):
             "Teknologi Pangan", "Teknik Logistik", "DKV"
         ])
         self.prodi_combo.setCurrentIndex(0)  # Prodi default adalah Teknik Informatika
+        
+        # Line Edit untuk Jumlah NIM
+        self.num_nim_input = QLineEdit(self)
+        self.num_nim_input.setText("50")
+
+        # List Widget untuk Menampilkan Daftar NIM
+        self.list_widget = QListWidget(self)
+        
+        # Button
+        self.generate_button = QPushButton("Generate NIM", self)
+        self.generate_button.clicked.connect(self.generate_nim)
+
+        self.sort_button = QPushButton("Sort NIM", self)
+        self.sort_button.clicked.connect(self.sort_nim)
+
+        # Status Label
+        self.status_label = QLabel("Status: ", self)
