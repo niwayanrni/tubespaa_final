@@ -119,3 +119,22 @@ class MainWindow(QWidget):
         # Menggabungkan semua daftar NIM dari semua prodi
         all_nim_list = sum(self.prodi_nim_lists.values(), [])
     
+        start_time = time.time()
+        all_nim_list.sort()
+        end_time = time.time()
+
+        # Menampilkan daftar NIM yang sudah diurutkan
+        self.list_widget.clear()
+        for nim in all_nim_list:
+            self.list_widget.addItem(nim)
+        
+        duration = end_time - start_time
+        n = len(all_nim_list)
+
+        # Menghitung status algoritma sorting
+        if n == 0:
+            status = "Tidak ada NIM yang diurutkan."
+        elif duration <= 0.0001 * n:
+            status = "Best Case"
+        elif duration >= 0.1 * n * (n - 1):
+            status = "Worst Case"
