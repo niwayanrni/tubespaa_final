@@ -138,7 +138,6 @@ class MainWindow(QWidget):
             status = "Best Case"
         elif duration >= 0.1 * n * (n - 1):
             status = "Worst Case"
-        
         else:
             status = "Average Case"
 
