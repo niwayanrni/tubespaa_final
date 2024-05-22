@@ -138,3 +138,22 @@ class MainWindow(QWidget):
             status = "Best Case"
         elif duration >= 0.1 * n * (n - 1):
             status = "Worst Case"
+        
+        else:
+            status = "Average Case"
+
+        # Menampilkan status dan jumlah NIM dari setiap prodi yang memiliki NIM
+        status_text = f"Status: {status}\n"
+        for prodi, nim_list in self.prodi_nim_lists.items():
+            if nim_list:  # Hanya menampilkan prodi yang memiliki NIM
+                status_text += f"{prodi}: {len(nim_list)} NIM\n"
+        status_text += f"Total: {n} NIM"
+
+        self.status_label.setText(status_text)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
+        
