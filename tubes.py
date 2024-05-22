@@ -41,3 +41,21 @@ class MainWindow(QWidget):
 
         # Status Label
         self.status_label = QLabel("Status: ", self)
+   
+        # Layout
+        layout = QVBoxLayout()
+        layout.addWidget(self.label_prodi)
+        layout.addWidget(self.prodi_combo)
+        layout.addWidget(self.label_num_nim)
+        layout.addWidget(self.num_nim_input)
+        layout.addWidget(self.list_widget)
+        
+        button_layout = QHBoxLayout()
+        button_layout.addWidget(self.generate_button)
+        button_layout.addWidget(self.sort_button)
+        
+        layout.addLayout(button_layout)
+        layout.addWidget(self.status_label)
+        
+        self.setLayout(layout)
+     
