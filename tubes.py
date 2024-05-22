@@ -98,3 +98,24 @@ class MainWindow(QWidget):
         # Membuat daftar NIM baru untuk prodi yang dipilih
         nim_list = [f"{prodi_code}{str(i).zfill(2)}" for i in range(1, 100)]
         random.shuffle(nim_list)
+        
+        # Memotong daftar NIM baru sesuai jumlah yang diminta dan menambahkannya ke daftar NIM prodi yang ada
+        self.prodi_nim_lists[selected_prodi].extend(nim_list[:num_nim])
+
+        # Menghapus prodi yang sudah digenerate dari combo box
+        index = self.prodi_combo.findText(selected_prodi)
+        self.prodi_combo.removeItem(index)
+
+        # Menggabungkan semua daftar NIM dari semua prodi
+        all_nim_list = sum(self.prodi_nim_lists.values(), [])
+        random.shuffle(all_nim_list)
+
+        # Menampilkan daftar NIM yang digenerate
+        self.list_widget.clear()
+        for nim in all_nim_list:
+            self.list_widget.addItem(nim)
+
+    def sort_nim(self):
+        # Menggabungkan semua daftar NIM dari semua prodi
+        all_nim_list = sum(self.prodi_nim_lists.values(), [])
+    
