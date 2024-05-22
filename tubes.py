@@ -120,7 +120,7 @@ class MainWindow(QWidget):
         all_nim_list = sum(self.prodi_nim_lists.values(), [])
     
         start_time = time.time()
-        all_nim_list.sort()
+        all_nim_list = sorted(all_nim_list, key = lambda x: int (x))
         end_time = time.time()
 
         # Menampilkan daftar NIM yang sudah diurutkan
