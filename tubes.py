@@ -59,3 +59,24 @@ class MainWindow(QWidget):
         
         self.setLayout(layout)
      
+        #Dictionary untuk Menyimpan Daftar NIM per Prodi
+        self.prodi_nim_lists = {
+            "Teknik Informatika": [], "'Bisnis Digital":[], "Fisika": [], "Matematika": [], 
+            "Mesin": [], "Teknik Elektro": [], "Teknik Kimia": [], "TMM": [], "Teknik Sipil": [], 
+            "PWK": [], "Kapal": [], "Sistem Informasi": [], "Teknik Industri": [], 
+            "Teknik Lingkungan": [], "Kelautan": [], "Arsitektur": [], "Statistika": [], 
+            "Aktuaria": [], "Rekayasa Keselamatan": [], "Teknologi Pangan": [], 
+            "Teknik Logistik": [], "DKV": []
+        }
+        
+        #Dictionary untuk Kode Prodi
+        self.prodi_codes = {
+            "Teknik Informatika": 112210, "'Bisnis Digital": 202210 , "Fisika": 12210,
+            "Matematika": 22210, "Mesin": 32210, "Teknik Elektro": 42210, "Teknik Kimia": 52210,
+            "TMM": 62210, "Teknik Sipil": 72210, "PWK": 82210, "Kapal": 92210,
+            "Sistem Informasi": 102210, "Teknik Industri": 122210, "Teknik Lingkungan": 132210,
+            "Kelautan": 142210, "Arsitektur": 152210, "Statistika": 162210, 
+            "Aktuaria": 172210, "Rekayasa Keselamatan": 182210, "Teknologi Pangan": 192210, 
+            "Teknik Logistik": 212210, "DKV": 222210
+        }
+    
