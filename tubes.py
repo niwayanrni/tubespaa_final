@@ -79,4 +79,22 @@ class MainWindow(QWidget):
             "Aktuaria": 172210, "Rekayasa Keselamatan": 182210, "Teknologi Pangan": 192210, 
             "Teknik Logistik": 212210, "DKV": 222210
         }
-    
+        
+    def generate_nim(self):
+        # Memeriksa apakah jumlah NIM valid
+        try:
+            num_nim = int(self.num_nim_input.text())
+            if num_nim <= 0:
+                raise ValueError
+        except ValueError:
+            QMessageBox.critical(self, "Error", "Masukkan jumlah NIM yang valid (bilangan bulat positif).")
+            return
+
+        # Mendapatkan prodi yang dipilih
+        selected_prodi = self.prodi_combo.currentText()
+        prodi_code = self.prodi_codes[selected_prodi]
+        current_list = self.prodi_nim_lists[selected_prodi]
+
+        # Membuat daftar NIM baru untuk prodi yang dipilih
+        nim_list = [f"{prodi_code}{str(i).zfill(2)}" for i in range(1, 100)]
+        random.shuffle(nim_list)
